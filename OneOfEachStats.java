@@ -14,16 +14,82 @@ public class OneOfEachStats {
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
+		double sum = 0;
+		int num2 = 0;
+		int num3 = 0;
+		int num4 = 0;
+		boolean isBoy, isGirl;
+		double rand;
+	
+		for (int i = 0; i < T; i++) {
+			isBoy = false;
+			isGirl = false;
+			rand = generator.nextDouble();
+			if (rand < 0.5) {
+				isGirl = true;
+				//System.out.print("g ");
+			}	
+			else {
+				isBoy = true;
+				//System.out.print("b ");
+			}
+			int count = 1;
+			while ((isBoy == true && isGirl == false) || (isBoy == false && isGirl == true)) {
+			 	rand = generator.nextDouble();
+				count++;
+				if (rand < 0.5) {
+					isGirl = true;
+					//System.out.print("g ");
+				}	
+				else {
+					isBoy = true;
+					//System.out.print("b ");
+				}
+			}
+			System.out.println();
+			sum += count;
+				if (count == 2)
+					num2++;
+				else {
+					if (count == 3)
+						num3++;
+					else 
+						if (count >= 4)
+							num4++;
+				}
+		}
+
+		System.out.println("Average: " + sum / T + " children to get at least one of each gender.");
+		System.out.println("Number of families with 2 children is: " + num2);
+		System.out.println("Number of families with 3 children is: " + num3);
+		System.out.println("Number of families with 4 or more children is: " + num4);
+
+		if ((num4 > num2) && (num4 > num3)) {
+			System.out.println("The most common number of children is 4 or more." );
+		}
+		else {
+			if ((num3 > num4) && (num3 > num2)) {
+				System.out.println("The most common number of children is 3.");
+			}
+			else
+				System.out.println("The most common number of children is 2.");
+		}
 		
-		//// In the previous version of this program, you used a statement like:
+
+		
+
+		
+	}
+}
+		    
+	
+
+	//// In the previous version of this program, you used a statement like:
 		//// double rnd = Math.random();
 		//// Where "rnd" is the variable that stores the generated random value.
 		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
+		////double rnd = generator.nextDouble();
 		//// This statement will generate a random value in the range [0,1),
 		//// just like you had in the previous version, except that the 
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
-		    
-	}
-}
