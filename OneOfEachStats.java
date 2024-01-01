@@ -17,7 +17,7 @@ public class OneOfEachStats {
 		double sum = 0;
 		int num2 = 0;
 		int num3 = 0;
-		int num4 = 0;
+		int num4Plus = 0;
 		boolean isBoy, isGirl;
 		double rand;
 	
@@ -55,20 +55,20 @@ public class OneOfEachStats {
 						num3++;
 					else 
 						if (count >= 4)
-							num4++;
+							num4Plus++;
 				}
 		}
 
 		System.out.println("Average: " + sum / T + " children to get at least one of each gender.");
-		System.out.println("Number of families with 2 children is: " + num2);
-		System.out.println("Number of families with 3 children is: " + num3);
-		System.out.println("Number of families with 4 or more children is: " + num4);
+		System.out.println("Number of families with 2 children: " + num2);
+		System.out.println("Number of families with 3 children: " + num3);
+		System.out.println("Number of families with 4 or more children: " + num4Plus);
 
-		if ((num4 > num2) && (num4 > num3)) {
+		if ((num4Plus > num2) && (num4Plus > num3)) {
 			System.out.println("The most common number of children is 4 or more." );
 		}
 		else {
-			if ((num3 > num4) && (num3 > num2)) {
+			if ((num3 > num4Plus) && (num3 > num2)) {
 				System.out.println("The most common number of children is 3.");
 			}
 			else
